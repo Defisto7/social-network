@@ -1,3 +1,8 @@
+.text{
+  display: flex;
+  align-items: center;
+  border-right: solid 1px white;
+}
 .text a{
   display: block;
   color: azure;
@@ -7,4 +12,10 @@
 
 .text a.active{
   color: gold;
+}
+.img{
+  padding: 10px;
+  height: 50px;
+  width: 50px;
+  border-radius: 40%;
 }

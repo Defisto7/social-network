@@ -4,7 +4,7 @@ import s from './Dialogs.module.css';
 import Message from './Message/Message';
 
 function Dialogs({dialogs, message}) {
-  let dialogElements = dialogs.map((e, i) => <DialogItem key={i} name={e.name} id={e.id} />);
+  let dialogElements = dialogs.map((e, i) => <DialogItem key={i} name={e.name} id={e.id} avatar={e.avatar}/>);
 
   let messageElements = message.map((e, i) => <Message key={i} message={e.message} />);
 
