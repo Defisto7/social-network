@@ -1,0 +1,17 @@
+.navBar {
+  grid-area: n;
+  background-image: url('https://i.pinimg.com/originals/ae/8d/45/ae8d45fad05a8ccb4afd2da92c083c6d.jpg');
+  padding: 7px;
+  
+}
+
+.item {
+  color: aliceblue;
+  padding-top: 10px;
+  text-decoration: none;
+}
+
+.active {
+  color: gold;
+  text-decoration: none;
+}

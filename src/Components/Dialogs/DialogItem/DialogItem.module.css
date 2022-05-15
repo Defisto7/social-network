@@ -1,0 +1,10 @@
+.text a{
+  display: block;
+  color: azure;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.text a.active{
+  color: gold;
+}

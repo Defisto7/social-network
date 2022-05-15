@@ -1,9 +1,12 @@
 import React from 'react';
 import './Content.css'
+import MyPosts from './MyPosts/MyPosts';
 
 function Content() {
   return (
-    <div className='content'>Content</div>
+    <div>
+      <MyPosts />
+    </div>
   )
 }
 
