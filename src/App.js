@@ -5,7 +5,7 @@ import NavBar from './Components/NavBar'
 import s from'./App.module.css'
 import Dialogs from './Components/Dialogs/';
 
-function App() {
+function App({dialogs, message, post}) {
     return ( 
         <BrowserRouter>
         <div className={s.appWrapper}>
@@ -13,8 +13,8 @@ function App() {
             <NavBar />      
             <div className={s.appWrapperContent}>
                 <Routes>
-                    <Route path='/profile/*' element={<Content />}/>
-                    <Route path='/dialogs/*' element={<Dialogs />}/>
+                    <Route path='/profile/*' element={<Content post={post}/>}/>
+                    <Route path='/dialogs/*' element={<Dialogs dialogs={dialogs} message={message}/>}/>
                 </Routes>    
             </div>
         </div>

@@ -2,10 +2,10 @@ import React from 'react';
 import './Content.css'
 import MyPosts from './MyPosts/MyPosts';
 
-function Content() {
+function Content({post}) {
   return (
     <div>
-      <MyPosts />
+      <MyPosts post={post}/>
     </div>
   )
 }
