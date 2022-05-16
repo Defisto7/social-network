@@ -8,10 +8,23 @@ function Dialogs({dialogs, message}) {
 
   let messageElements = message.map((e, i) => <Message key={i} message={e.message} />);
 
+  let newMessageElement = React.createRef();
+
+  let addMessage = () => {
+    let text = newMessageElement.current.value;
+    alert(text)
+  }
+
   return (
     <div className={s.dialogs}>
       <div>{dialogElements}</div>
-      <div>{messageElements}</div>
+      <div>{messageElements}
+        <div className={s.textarea}>
+          <textarea ref={newMessageElement} cols="40" rows="2"></textarea>
+          <button onClick={addMessage}>Send</button>
+        </div>
+      </div>
+      
     </div>
   );
 }
