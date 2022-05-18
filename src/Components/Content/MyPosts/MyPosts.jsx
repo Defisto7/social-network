@@ -2,20 +2,28 @@ import React from 'react';
 import s from './MyPosts.module.css'
 import Post from './Post/Post';
 
-function MyPosts({post}) {
+function MyPosts({post, addPost, newPostText, updateNewPostText}) {
   let postElements = post.map((e, i) => <Post key={i} text={e.text}/>);
-
   let newPostElement = React.createRef();
 
-  let addPost = () => {
+  let addPosts = () => {
     let text = newPostElement.current.value;
-    alert(text)
+    addPost(text)
   }
+
+  let onPostChange = () => {
+    let text = newPostElement.current.value;
+    updateNewPostText(text)
+  }
+  
   return (
     <div>
       <div className={s.textArea}>
-        <textarea ref={newPostElement} cols="40" rows="2"></textarea>
-        <button onClick={ addPost } className={s.btn}>Add post</button>
+        <textarea cols="40" rows="2" 
+          onChange={onPostChange} 
+          ref={newPostElement} 
+          value={newPostText} />
+        <button onClick={ addPosts } className={s.btn}>Add post</button>
       </div>
       {postElements}
     </div>
