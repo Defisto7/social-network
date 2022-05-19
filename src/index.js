@@ -1,8 +1,8 @@
-import state, { subscribe } from './Redux/State'
+import store from './Redux/State'
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { addPost, updateNewPostText, addMessage, updateNewMessageText } from './Redux/State'
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -11,19 +11,19 @@ let renderEntireTree = () => {
   root.render(
     <React.StrictMode>
       <App 
-        dialogs={state.dialogsData} 
-        message={state.messageData} 
-        post={state.postData}
-        addPost={addPost}
-        newPostText={state.newPostText}
-        updateNewPostText={updateNewPostText}
-        newMessageData={state.newMessageData}
-        addMessage={addMessage}
-        updateNewMessageText={updateNewMessageText}/>
+        dialogs={store._state.dialogsData} 
+        message={store._state.messageData} 
+        post={store._state.postData}
+        addPost={store.addPost.bind(store)}
+        newPostText={store._state.newPostText}
+        updateNewPostText={store.updateNewPostText.bind(store)}
+        newMessageData={store._state.newMessageData}
+        addMessage={store.addMessage.bind(store)}
+        updateNewMessageText={store.updateNewMessageText.bind(store)}/>
     </React.StrictMode>
   );
 }
 
-renderEntireTree(state)
+renderEntireTree(store.getState())
 
-subscribe(renderEntireTree);
+store.subscribe(renderEntireTree);
