@@ -1,5 +1,4 @@
 let renderEntireTree = () => {
-  console.log('State changet')
 }
 
 let state = {
@@ -36,13 +35,13 @@ export const addPost = () => {
 
   state.postData.push(newPost);
   state.newPostText = '';
-  renderEntireTree(state);
+  renderEntireTree();
 }
 
 export const updateNewPostText = (newText) => {
 
   state.newPostText = newText;
-  renderEntireTree(state);
+  renderEntireTree();
 }
 
 export const addMessage = () => {
@@ -52,13 +51,13 @@ export const addMessage = () => {
 
   state.messageData.push(newMessage);
   state.newMessageData = '';
-  renderEntireTree(state);
+  renderEntireTree();
 }
 
 export const updateNewMessageText = (newText) => {
 
   state.newMessageData = newText;
-  renderEntireTree(state);
+  renderEntireTree();
 }
 
 export const subscribe = (observer) => {
