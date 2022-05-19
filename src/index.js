@@ -14,12 +14,10 @@ let renderEntireTree = () => {
         dialogs={store._state.dialogsData} 
         message={store._state.messageData} 
         post={store._state.postData}
-        addPost={store.addPost.bind(store)}
+        dispatch={store.dispatch.bind(store)}
         newPostText={store._state.newPostText}
-        updateNewPostText={store.updateNewPostText.bind(store)}
         newMessageData={store._state.newMessageData}
-        addMessage={store.addMessage.bind(store)}
-        updateNewMessageText={store.updateNewMessageText.bind(store)}/>
+        />
     </React.StrictMode>
   );
 }

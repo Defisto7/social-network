@@ -3,7 +3,7 @@ import DialogItem from './DialogItem/DialogItem';
 import s from './Dialogs.module.css';
 import Message from './Message/Message';
 
-function Dialogs({dialogs, message, newMessageData, addMessage, updateNewMessageText}) {
+function Dialogs({dialogs, message, newMessageData, dispatch}) {
   let dialogElements = dialogs.map((e, i) => <DialogItem key={i} name={e.name} id={e.id} avatar={e.avatar}/>);
 
   let messageElements = message.map((e, i) => <Message key={i} message={e.message} />);
@@ -12,12 +12,12 @@ function Dialogs({dialogs, message, newMessageData, addMessage, updateNewMessage
 
   let addMessages = () => {
     let text = newMessageElement.current.value;
-    addMessage(text)
+    dispatch({type: 'ADD-MESSAGE', newText: text })
   }
 
   let onMessageChange = () => {
     let text = newMessageElement.current.value;
-    updateNewMessageText(text)
+    dispatch({type: 'UPDATE-NEW-MESSAGE', newText: text })
     
   }
 
