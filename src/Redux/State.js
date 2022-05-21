@@ -1,3 +1,6 @@
+import dialogsReducer from "./dialogReducer"
+import profileReducer from "./profileReducer"
+
 export const addPostActionCreator = () => {
   return {
     type: 'ADD-POST',
@@ -38,7 +41,7 @@ let store = {
         { id: 6, name: 'Victor', avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoOB39mVmbw6RZArjGZD13EX9UQ9YKOoe1g6QF5zQtnLSPI_AHQj-zk4vKaTCoJqEJ0kU&usqp=CAU' },
         { id: 7, name: 'Dasha', avatar: 'https://avatarfiles.alphacoders.com/113/113779.jpg' },
       ],
-      newMessageData: "Defisto",
+      newMessageData: "Доброго вечора ми з україни",
       messageData: [
         { message: 'Hi' },
         { message: 'How' },
@@ -57,28 +60,11 @@ let store = {
   _renderEntireTree  () {
   },
   dispatch(action) { 
-    if (action.type === 'ADD-POST') {
-      let newPost = {
-        id: 5,
-        text: this._state.profilePage.newPostText,
-      }
-      this._state.profilePage.postData.push(newPost);
-      this._state.profilePage.newPostText = '';
-      this._renderEntireTree();
-    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-      this._state.profilePage.newPostText = action.newText;
-      this._renderEntireTree();
-    } else if (action.type === 'ADD-MESSAGE') {
-      let newMessage = {
-        message: this._state.messagePage.newMessageData,
-      }
-      this._state.messagePage.messageData.push(newMessage);
-      this._state.messagePage.newMessageData = '';
-      this._renderEntireTree();
-    } else if (action.type === 'UPDATE-NEW-MESSAGE') {
-      this._state.messagePage.newMessageData = action.newText;
-      this._renderEntireTree();
-    }
+    profileReducer(this._state.profilePage, action);
+    dialogsReducer(this._state.messagePage, action);
+    
+    this._renderEntireTree();
+    
   },
 }
 
