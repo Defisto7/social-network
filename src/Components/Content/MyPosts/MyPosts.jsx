@@ -11,7 +11,6 @@ function MyPosts({post, newPostText, dispatch}) {
   let addPosts = () => {
     dispatch(addPostActionCreator())
   }
-
   let onPostChange = () => {
     let text = newPostElement.current.value;
     dispatch(updateNewPostTextActionCreator(text))
