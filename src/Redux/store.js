@@ -9,7 +9,7 @@ let store = {
         {text: 'Hello'},
         {text: 'Do you learn React?'},
       ],
-      newPostText: "Defisto",
+      newPostText: "Русский корабль или нах*й",
     },
     messagePage: {
       dialogsData: [

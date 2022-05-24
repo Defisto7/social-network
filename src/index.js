@@ -1,4 +1,4 @@
-import store from './Redux/State'
+import store from './Redux/reduxStore'
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
@@ -7,16 +7,16 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-let renderEntireTree = () => {
+let renderEntireTree = (state) => {
   root.render(
     <React.StrictMode>
-      <App 
-        dialogs={store._state.messagePage.dialogsData} 
-        message={store._state.messagePage.messageData} 
-        post={store._state.profilePage.postData}
+      <App
+        dialogs={state.messagePage.dialogsData} 
+        message={state.messagePage.messageData}
+        newMessageData={state.messagePage.newMessageData} 
+        post={state.profilePage.postData}
+        newPostText={state.profilePage.newPostText}
         dispatch={store.dispatch.bind(store)}
-        newPostText={store._state.profilePage.newPostText}
-        newMessageData={store._state.messagePage.newMessageData}
         />
     </React.StrictMode>
   );
@@ -24,4 +24,7 @@ let renderEntireTree = () => {
 
 renderEntireTree(store.getState())
 
-store.subscribe(renderEntireTree);
+store.subscribe(() => {
+  let state = store.getState()
+  renderEntireTree(state)
+});
